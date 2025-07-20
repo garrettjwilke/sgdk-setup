@@ -1,0 +1,19 @@
+BASE_BUILD_DIR=$HOME/build
+GDK=${BASE_BUILD_DIR}/SGDK
+M68K_GCC_TOOLCHAIN=${BASE_BUILD_DIR}/m68k-gcc-toolchain
+
+GDK_VERSION="master"
+#GDK_VERSION="v2.11" # use this for tagged releases
+
+GCC_MIRROR="https://mirrors.ocf.berkeley.edu/gnu"
+GCC_VERSION="14.2.0"
+GCC_DIR="gcc-${GCC_VERSION}"
+GCC_FILE="${GCC_DIR}.tar.gz"
+GCC_URL="${GCC_MIRROR}/gcc/${GCC_DIR}/$GCC_FILE"
+
+BINUTILS_VERSION="2.44"
+BINUTILS_DIR="binutils-${BINUTILS_VERSION}"
+BINUTILS_FILE="${BINUTILS_DIR}.tar.gz"
+BINUTILS_URL="${GCC_MIRROR}/binutils/$BINUTILS_FILE"
+
+OS_CHECK=$(uname)
