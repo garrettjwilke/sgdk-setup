@@ -180,6 +180,7 @@ source ~/.zshrc
 the final step is to build the SGDK libraries for the `release` and `debug` builds:
 
 ```
+cd ~/build/SGDK
 make -f makelib.gen clean-release
 make -f makelib.gen release
 make -f makelib.gen clean-debug
