@@ -124,7 +124,6 @@ now that we have the m68k gcc tools, we need to clone the latest SGDK and build 
 
 ```
 git clone https://github.com/Stephane-D/SGDK.git
-git checkout $GDK_VERSION
 git clone https://github.com/Konamiman/Sjasm
 cd Sjasm
 git checkout v0.39
