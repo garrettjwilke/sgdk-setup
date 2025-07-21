@@ -1,4 +1,4 @@
-# compile SGDK for MacOS
+# compile SGDK for MacOS or Linux (arm64 or x86_64)
 this will compile the gcc tools for the motorolla 68000 and also the SGDK tools and libraries. the result will be macOS or Linux (arm64 or x86_64) native toolkit to compile SGDK projects. the advantage to this is compile time speed.
 
 i have created a script to do all of this automatically. scroll to the bottom to see instructions to use the script. the individual instructions are here simply for reference and if my script breaks, at least there is some sort of documentation about what it is trying to do.
