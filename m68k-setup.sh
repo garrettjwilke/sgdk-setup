@@ -12,7 +12,7 @@ fi
 # libmpc texinfo git make java makeinfo
 
 deps_check() {
-  for i in "git" "gcc-13" "make" "wget" "makeinfo"
+  for i in "git" "make" "wget" "makeinfo"
   do
     if [ "$(which $i)" == "" ]
     then
@@ -20,13 +20,19 @@ deps_check() {
       if [ "$i" == "makeinfo" ]
       then
         echo "install texinfo or something like that"
-      elif [ "$i" == "gcc-13" ]
-      then
-        echo "brew install gcc@13"
       fi
       exit
     fi
   done
+  if [ "$OS_CHECK" == "Darwin" ]
+  then
+    if [ "$(which gcc-13)" == "" ]
+    then
+      echo "gcc-13 not installed"
+      echo "brew install gcc@13"
+      exit
+    fi
+  fi
 }
 
 clean_build() {
