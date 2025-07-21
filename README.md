@@ -123,6 +123,7 @@ the gcc toolchain for m68k is now compiled and we can move on to building SGDK t
 now that we have the m68k gcc tools, we need to clone the latest SGDK and build the tools and libraries for it. `sjasm` is required to build so we will build `sjasm` and put the binary into the `SGDK/bin` directory:
 
 ```
+cd ~/build
 git clone https://github.com/Stephane-D/SGDK.git
 git clone https://github.com/Konamiman/Sjasm
 cd Sjasm

@@ -14,7 +14,6 @@ fi
 deps_check() {
   for i in "git" "gcc-13" "make" "wget" "makeinfo"
   do
-    echo $i
     if [ "$(which $i)" == "" ]
     then
       echo "$i is not installed"
