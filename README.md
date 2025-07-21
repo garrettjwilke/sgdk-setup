@@ -232,7 +232,13 @@ make -f makelib.gen debug
 
 ## how to use
 
-now that we have built our toolchain, the SGDK tools, and the SGDK libraries, we can build SGDK roms now using native tools! we can test this by attempting to compile the `SGDK/sample/basics/hello-world` code:
+now that we have built our toolchain, the SGDK tools, and the SGDK libraries, we can build SGDK roms now using native tools! simply run the following in the root of any SGDK project:
+
+```
+make -f ~/build/SGDK/makefile.gen
+```
+
+we can test this by attempting to compile the `SGDK/sample/basics/hello-world` code:
 
 ```
 cd ~/build/SGDK/sample/basics/hello-world
