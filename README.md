@@ -135,9 +135,9 @@ rm -rf build
 rm -rf src
 ```
 
-the gcc toolchain for m68k is now compiled and we can move on to building SGDK tools natively for arm64 macOS.
+the gcc toolchain for m68k is now compiled and we can move on to building SGDK tools.
 
-### compiling SGDK tools for arm64 mac
+### compiling SGDK tools
 
 now that we have the m68k gcc tools, we need to clone the latest SGDK and build the tools and libraries for it. `sjasm` is required to build so we will build `sjasm` and put the binary into the `SGDK/bin` directory:
 
