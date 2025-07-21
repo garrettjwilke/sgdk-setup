@@ -27,7 +27,7 @@ brew install git wget texinfo gcc@13 openjdk
 * `wget`
 * `texinfo`
 * `build-essential`
-* [openjdk-11-jre]
+* `openjdk-11-jre`
 
 after installing these packages, the system might not set the `PATH` immediately, so it is best to close the current terminal and re-open a new terminal.
 
