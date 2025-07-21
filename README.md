@@ -1,9 +1,12 @@
 # compile SGDK for MacOS
-this will compile the gcc tools for the motorolla 68000 and also the SGDK tools and libraries. the result will be macOS arm64 native toolkit to compile SGDK projects. the advantage to this is compile time speed.
+this will compile the gcc tools for the motorolla 68000 and also the SGDK tools and libraries. the result will be macOS or Linux (arm64 or x86_64) native toolkit to compile SGDK projects. the advantage to this is compile time speed.
 
 i have created a script to do all of this automatically. scroll to the bottom to see instructions to use the script. the individual instructions are here simply for reference and if my script breaks, at least there is some sort of documentation about what it is trying to do.
 
 ### requirements before starting
+
+### macOS requirements
+
 * [brew](https://brew.sh/) 
 
 once brew is installed, you will need the following packages:
@@ -17,6 +20,14 @@ once brew is installed, you will need the following packages:
 ```
 brew install git wget texinfo gcc@13 openjdk
 ```
+
+### Linux requirements
+
+* `git`
+* `wget`
+* `texinfo`
+* `build-essential`
+* [openjdk-11-jre]
 
 after installing these packages, the system might not set the `PATH` immediately, so it is best to close the current terminal and re-open a new terminal.
 
@@ -73,10 +84,18 @@ cd ~/build/m68k-gcc-toolchain/build/binutils-2.44
 
 we need to set up so the compiler flags are correctly set. the target will be in the `~/build/m68k-gcc-toolchain` directory, so that when we run `make install` it will install there rather than system wide:
 
-```
-export CC=gcc-13
-export CXX=g++-13
+### macOS note:
 
+you will need to force the gcc installed from brew, so run this:
+
+```
+export CC=gcc-13 # macOS only
+export CXX=g++-13 # macOS only
+```
+
+---
+
+```
 ~/build/m68k-gcc-toolchain/src/binutils-2.44/configure \
   --target=m68k-elf \
   --prefix=$HOME/build/m68k-gcc-toolchain \
@@ -122,6 +141,17 @@ the gcc toolchain for m68k is now compiled and we can move on to building SGDK t
 
 now that we have the m68k gcc tools, we need to clone the latest SGDK and build the tools and libraries for it. `sjasm` is required to build so we will build `sjasm` and put the binary into the `SGDK/bin` directory:
 
+### macOS note:
+
+you will need to force the gcc installed from brew, so run this:
+
+```
+export CXX=/usr/bin/g++ # macOS only
+export CC=/usr/bin/gcc # macOS only
+```
+
+---
+
 ```
 cd ~/build
 git clone https://github.com/Stephane-D/SGDK.git
@@ -129,8 +159,6 @@ git clone https://github.com/Konamiman/Sjasm
 cd Sjasm
 git checkout v0.39
 cd Sjasm
-export CXX=/usr/bin/g++
-export CC=/usr/bin/gcc
 make sjasm -j8
 cp sjasm ~/build/SGDK/bin/
 ```
@@ -170,6 +198,8 @@ export PATH=~/build/SGDK/bin:$PATH
 export PATH=~/build/m68k-gcc-toolchain/bin:$PATH
 ```
 
+### macOS note:
+
 once you close your terminal, the `PATH` will be reset, so it is best to add the 2 lines above to your `.zshrc`. run these commands, to add to `PATH` and re-source your environment variables:
 
 ```
@@ -177,6 +207,17 @@ echo -n 'export PATH=$HOME/build/SGDK/bin:$PATH' >> ~/.zshrc
 echo "" >> ~/.zshrc
 echo -n 'export PATH=$HOME/build/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
 source ~/.zshrc
+```
+
+### linux note:
+
+you will need to add to `PATH`. you will most likely be using `bash` rather than `zsh`:
+
+```
+echo -n 'export PATH=$HOME/build/SGDK/bin:$PATH' >> ~/.bashrc
+echo "" >> ~/.zshrc
+echo -n 'export PATH=$HOME/build/m68k-gcc-toolchain/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 the final step is to build the SGDK libraries for the `release` and `debug` builds:
