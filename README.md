@@ -174,6 +174,7 @@ once you close your terminal, the `PATH` will be reset, so it is best to add the
 
 ```
 echo -n 'export PATH=$HOME/SGDK/bin:$PATH' >> ~/.zshrc
+echo "" >> ~/.zshrc
 echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
 source ~/.zshrc
 ```
