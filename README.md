@@ -143,7 +143,7 @@ now that we have the m68k gcc tools, we need to clone the latest SGDK and build 
 
 ### macOS note:
 
-you will need to force the gcc installed from brew, so run this:
+you will need to tell what compiler to use, so run this:
 
 ```
 export CXX=/usr/bin/g++ # macOS only
