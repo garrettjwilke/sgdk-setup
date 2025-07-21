@@ -173,9 +173,9 @@ export PATH=~/build/m68k-gcc-toolchain/bin:$PATH
 once you close your terminal, the `PATH` will be reset, so it is best to add the 2 lines above to your `.zshrc`. run these commands, to add to `PATH` and re-source your environment variables:
 
 ```
-echo -n 'export PATH=$HOME/SGDK/bin:$PATH' >> ~/.zshrc
+echo -n 'export PATH=$HOME/build/SGDK/bin:$PATH' >> ~/.zshrc
 echo "" >> ~/.zshrc
-echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
+echo -n 'export PATH=$HOME/build/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
 source ~/.zshrc
 ```
 
