@@ -6,7 +6,7 @@ GDK_VERSION="master"
 #GDK_VERSION="v2.11" # use this for tagged releases
 
 GCC_MIRROR="https://mirrors.ocf.berkeley.edu/gnu"
-GCC_VERSION="14.2.0"
+GCC_VERSION="13.2.0"
 GCC_DIR="gcc-${GCC_VERSION}"
 GCC_FILE="${GCC_DIR}.tar.gz"
 GCC_URL="${GCC_MIRROR}/gcc/${GCC_DIR}/$GCC_FILE"
