@@ -272,7 +272,7 @@ you will need to add to `PATH`. you will most likely be using `bash` rather than
 
 ```
 echo -n 'export PATH=$HOME/build/SGDK/bin:$PATH' >> ~/.bashrc
-echo "" >> ~/.zshrc
+echo "" >> ~/.bashrc
 echo -n 'export PATH=$HOME/build/m68k-gcc-toolchain/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
