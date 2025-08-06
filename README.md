@@ -45,7 +45,7 @@ git clone https://github.com/garrettjwilke/sgdk-setup.git
 cd sgdk-setup
 ```
 
-this script will run the same commands as the tutorial above, but it is automated. it is split into 2 separate scripts to split the process for building the `gcc` toolchain and the `SGDK` tools/lib.
+this script will run the same commands as the tutorial below, but it is automated. it is split into 2 separate scripts to split the process for building the `gcc` toolchain and the `SGDK` tools/lib.
 
 * `m68k-setup.sh`
 * `sgdk-setup.sh`
