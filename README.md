@@ -21,6 +21,13 @@ once brew is installed, you will need the following packages:
 brew install git wget texinfo gcc@13 openjdk
 ```
 
+sometimes java is in PATH, but not in PATH...
+
+```
+echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
 ### Linux requirements
 
 * `git`
