@@ -38,6 +38,56 @@ source ~/.zshrc
 
 after installing these packages, the system might not set the `PATH` immediately, so it is best to close the current terminal and re-open a new terminal.
 
+## install script
+
+```
+git clone https://github.com/garrettjwilke/sgdk-setup.git
+cd sgdk-setup
+```
+
+this script will run the same commands as the tutorial above, but it is automated. it is split into 2 separate scripts to split the process for building the `gcc` toolchain and the `SGDK` tools/lib.
+
+* `m68k-setup.sh`
+* `sgdk-setup.sh`
+
+both of these scripts are dynamic and the version numbers and mirrors can be adjusted by editing the `tool-variables` file. the gcc version number and binutils version numbers can be adjusted in this file.
+
+### m68k gcc script
+before installing the SGDK stuff, we first need to build the `gcc` toolchain:
+
+```
+./m68k-setup.sh
+```
+
+after running the script above, you will have the `gcc` toolchain installed to:
+
+`~/build/m68k-gcc-toolchain`
+
+you will need to add to `PATH` manually, as this is intended to not disturb your configs:
+
+```
+echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### SGDK tools/lib setup
+
+after installing the `gcc` toolchain, you can then install the `SGDK` tools and libraries:
+
+```
+./sgdk-setup.sh
+```
+
+you will need to add to `PATH` manually, as this is intended to not disturb your configs:
+
+```
+echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
+source ~/.zshrc
+```
+
+you can then build any SGDK project. see the "how to use" section below.
+
+
 ## compiling the toolchain
 
 when you use SGDK on windows, the toolchain and libraries are already compiled, thus the toolchain is self contained and not installed on a system level (you can delete the SGDK directory in windows and nothing breaks). in this tutorial, we will be installing the gcc-m68k toolchain in the `home` directory. this allows us to simply delete the SGDK directory if we don't need it anymore and nothing breaks. on my system, i have a `build` directory inside of my `home` directory, but you can name this directory whatever you want:
@@ -260,52 +310,3 @@ you can compile the debug version with symbols like this:
 cd ~/build/SGDK/sample/basics/hello-world
 make -f ~/build/SGDK/makefile.gen debug
 ```
-
-## install script
-
-```
-git clone https://github.com/garrettjwilke/sgdk-setup.git
-cd sgdk-setup
-```
-
-this script will run the same commands as the tutorial above, but it is automated. it is split into 2 separate scripts to split the process for building the `gcc` toolchain and the `SGDK` tools/lib.
-
-* `m68k-setup.sh`
-* `sgdk-setup.sh`
-
-both of these scripts are dynamic and the version numbers and mirrors can be adjusted by editing the `tool-variables` file. the gcc version number and binutils version numbers can be adjusted in this file.
-
-### m68k gcc script
-before installing the SGDK stuff, we first need to build the `gcc` toolchain:
-
-```
-./m68k-setup.sh
-```
-
-after running the script above, you will have the `gcc` toolchain installed to:
-
-`~/build/m68k-gcc-toolchain`
-
-you will need to add to `PATH` manually, as this is intended to not disturb your configs:
-
-```
-echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
-source ~/.zshrc
-```
-
-### SGDK tools/lib setup
-
-after installing the `gcc` toolchain, you can then install the `SGDK` tools and libraries:
-
-```
-./sgdk-setup.sh
-```
-
-you will need to add to `PATH` manually, as this is intended to not disturb your configs:
-
-```
-echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
-source ~/.zshrc
-```
-
-you can then build any SGDK project. see the "how to use" section above.
