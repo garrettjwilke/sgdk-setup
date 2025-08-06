@@ -114,21 +114,21 @@ there are many mirrors to download the source, for this we will use the UC Berke
 ```
 cd m68k-gcc-toolchain/src
 wget https://mirrors.ocf.berkeley.edu/gnu/binutils/binutils-2.44.tar.gz
-wget https://mirrors.ocf.berkeley.edu/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.gz
+wget https://mirrors.ocf.berkeley.edu/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.gz
 ```
 
 after downloading the source, we need to extract them. after they are extracted, you can delete the `.tar.gz` files for each:
 
 ```
 tar -xzf binutils-2.44.tar.gz
-tar -xzf gcc-14.2.0.tar.gz
-rm binutils-2.44.tar.gz gcc-14.2.0.tar.gz
+tar -xzf gcc-13.2.0.tar.gz
+rm binutils-2.44.tar.gz gcc-13.2.0.tar.gz
 ```
 
-we now can `cd` into the `gcc-14.2.0` directory and download the prerequisites:
+we now can `cd` into the `gcc-13.2.0` directory and download the prerequisites:
 
 ```
-cd gcc-14.2.0
+cd gcc-13.2.0
 ./contrib/download_prerequisites
 ```
 
@@ -166,10 +166,10 @@ make install
 after this finishes, we will do the same for the `gcc` toolchain. this process takes a while to compile:
 
 ```
-mkdir ~/build/m68k-gcc-toolchain/build/gcc-14.2.0
-cd ~/build/m68k-gcc-toolchain/build/gcc-14.2.0
+mkdir ~/build/m68k-gcc-toolchain/build/gcc-13.2.0
+cd ~/build/m68k-gcc-toolchain/build/gcc-13.2.0
 
-~/build/m68k-gcc-toolchain/src/gcc-14.2.0/configure \
+~/build/m68k-gcc-toolchain/src/gcc-13.2.0/configure \
   --target=m68k-elf \
   --prefix=$HOME/build/m68k-gcc-toolchain \
   --enable-languages=c --without-headers --without-newlib \
