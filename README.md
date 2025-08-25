@@ -88,7 +88,8 @@ source ~/.zshrc
 you can then build any SGDK project. see the "how to use" section below.
 
 
-## compiling the toolchain
+## manually compiling the toolchain
+### the steps below are not needed if you used the scripts above
 
 when you use SGDK on windows, the toolchain and libraries are already compiled, thus the toolchain is self contained and not installed on a system level (you can delete the SGDK directory in windows and nothing breaks). in this tutorial, we will be installing the gcc-m68k toolchain in the `home` directory. this allows us to simply delete the SGDK directory if we don't need it anymore and nothing breaks. on my system, i have a `build` directory inside of my `home` directory, but you can name this directory whatever you want:
 
