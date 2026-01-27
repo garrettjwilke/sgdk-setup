@@ -81,7 +81,7 @@ after installing the `gcc` toolchain, you can then install the `SGDK` tools and 
 you will need to add to `PATH` manually, as this is intended to not disturb your configs:
 
 ```
-echo -n 'export PATH=$HOME/m68k-gcc-toolchain/bin:$PATH' >> ~/.zshrc
+echo -n 'export PATH=$HOME/SGDK/bin:$PATH' >> ~/.zshrc
 source ~/.zshrc
 ```
 
