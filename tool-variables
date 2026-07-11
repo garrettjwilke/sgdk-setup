@@ -22,7 +22,7 @@ GDB_FILE="${GDB_DIR}.tar.xz"
 GDB_URL="${GCC_MIRROR}/gdb/${GDB_FILE}"
 
 OS_CHECK=$(uname)
-if [ "$OS_CHECK" == "Linux" && "$(cat /etc/os-release | grep "^NAME=" | sed 's/NAME=//g' | tr \" \ )" == "Arch Linux" ]
+if [ "$OS_CHECK" == "Linux" ] && [ "$(cat /etc/os-release | grep "^NAME=" | sed 's/NAME=//g' | tr \" \ )" == "Arch Linux" ]
 then
   GCC_VERSION="16.1.0"
 fi
