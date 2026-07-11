@@ -7,6 +7,13 @@ GDK_VERSION="master"
 
 GCC_MIRROR="https://mirrors.ocf.berkeley.edu/gnu"
 GCC_VERSION="13.2.0"
+OS_CHECK=$(uname)
+if [[ "$OS_CHECK" == "Linux" ]]; then
+    . /etc/os-release
+    if [[ "$NAME" == "Arch Linux" ]]; then
+        GCC_VERSION="16.1.0"
+    fi
+fi
 GCC_DIR="gcc-${GCC_VERSION}"
 GCC_FILE="${GCC_DIR}.tar.gz"
 GCC_URL="${GCC_MIRROR}/gcc/${GCC_DIR}/$GCC_FILE"
@@ -21,8 +28,3 @@ GDB_DIR="gdb-${GDB_VERSION}"
 GDB_FILE="${GDB_DIR}.tar.xz"
 GDB_URL="${GCC_MIRROR}/gdb/${GDB_FILE}"
 
-OS_CHECK=$(uname)
-if [ "$OS_CHECK" == "Linux" ] && [ "$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')" == "Arch Linux" ]
-then
-  GCC_VERSION="16.1.0"
-fi
